@@ -1,19 +1,21 @@
 import "./homepage.css";
 import Header from "../../Components/Header/Header";
-import FilmCard from "../../Components/FilmCard/FilmCard";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Movie } from "../../util/interface";
-import { getTrendingMovieData, handleWheel } from "../../util/utils";
+import { getAPIData, handleWheel } from "../../util/utils";
 import { Typography } from "@mui/material";
+import SliderMovies from "../../Components/Homepage/SliderMovies/SliderMovies";
 
 function Homepage() {
-  const [movieData, setMovieData] = useState<Movie[]>([]);
+  const [weeklyTrendingMovieData, setWeeklyTrendingMovieData] = useState<
+    Movie[]
+  >([]);
+  const [weeklyTrendingTVData, setDailyTrendingTVData] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
-  const scrollTimeoutRef = useRef<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    getTrendingMovieData("movie", setMovieData, setLoading);
+    getAPIData("movie", "week", setWeeklyTrendingMovieData, setLoading);
+    getAPIData("tv", "week", setDailyTrendingTVData, setLoading);
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   return (
@@ -27,15 +29,17 @@ function Homepage() {
             <Typography variant="h4" gutterBottom>
               Haftanın Filmleri
             </Typography>
-            <div
-              className="trending"
-              ref={containerRef}
-              onWheel={(e) => handleWheel(e, scrollTimeoutRef, containerRef)}
-            >
-              {movieData.map((movie, index) => (
-                <FilmCard key={index} apiResponse={movie} />
-              ))}
-            </div>
+            <SliderMovies
+              movieData={weeklyTrendingMovieData}
+              handleWheel={handleWheel}
+            />
+            <Typography variant="h4" gutterBottom>
+              Haftanın Dizileri
+            </Typography>
+            <SliderMovies
+              movieData={weeklyTrendingTVData}
+              handleWheel={handleWheel}
+            />
           </>
         )}
       </div>

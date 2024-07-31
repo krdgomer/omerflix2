@@ -1,0 +1,9 @@
+.trending {
+  margin: 4px, 4px;
+  padding: 4px;
+  width: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
