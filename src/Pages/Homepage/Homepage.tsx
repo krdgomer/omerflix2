@@ -1,10 +1,12 @@
 import "./homepage.css";
-import Header from "../../Components/Header/Header";
 import { useEffect, useState } from "react";
 import { Movie } from "../../util/interface";
 import { getAPIData, handleWheel } from "../../util/utils";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SliderMovies from "../../Components/Homepage/SliderMovies/SliderMovies";
+import Logo from "../../Components/Homepage/Logo/Logo";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import TopRatedHomepage from "../../Components/Homepage/TopRatedHomepage/TopRatedHomepage";
 
 function Homepage() {
   const [weeklyTrendingMovieData, setWeeklyTrendingMovieData] = useState<
@@ -20,21 +22,33 @@ function Homepage() {
 
   return (
     <>
-      <Header />
-      <div>
+      <Logo />
+      <Box sx={{ p: "rem" }}>
         {loading ? (
           <p>Loading...</p>
         ) : (
           <>
-            <Typography variant="h4" gutterBottom>
-              Haftanın Filmleri
+            <Typography
+              variant="h4"
+              sx={{ my: "1rem", ml: 1, fontWeight: "medium" }}
+            >
+              Haftanın Filmleri{" "}
+              <a href="">
+                <ArrowForwardIosIcon sx={{ color: "white" }} />
+              </a>
             </Typography>
             <SliderMovies
               movieData={weeklyTrendingMovieData}
               handleWheel={handleWheel}
             />
-            <Typography variant="h4" gutterBottom>
-              Haftanın Dizileri
+            <Typography
+              variant="h4"
+              sx={{ my: "1rem", ml: 1, fontWeight: "medium" }}
+            >
+              Haftanın Dizileri{" "}
+              <a href="">
+                <ArrowForwardIosIcon sx={{ color: "white" }} />
+              </a>
             </Typography>
             <SliderMovies
               movieData={weeklyTrendingTVData}
@@ -42,7 +56,8 @@ function Homepage() {
             />
           </>
         )}
-      </div>
+      </Box>
+      <TopRatedHomepage />
     </>
   );
 }

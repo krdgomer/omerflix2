@@ -1,0 +1,10 @@
+.image {
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(to left, transparent, black);
+  -webkit-mask-image: linear-gradient(
+    to left,
+    transparent,
+    black
+  ); /* For WebKit browsers */
+}

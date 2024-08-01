@@ -1,45 +1,6 @@
-import { Card, CardMedia, Typography, Box, Rating } from "@mui/material";
+import { Typography, Rating } from "@mui/material";
 import { Movie } from "../../../util/interface";
-import { styled } from "@mui/system";
-
-const StyledCard = styled(Card)({
-  position: "relative",
-  overflow: "hidden",
-  width: 300,
-  height: 450,
-  "&:hover .media": {
-    filter: "blur(5px)",
-    transform: "scale(1.05)",
-    transition: "all 0.3s ease",
-  },
-  "&:hover .overlay": {
-    opacity: 1,
-    transition: "opacity 0.3s ease",
-  },
-});
-
-const Media = styled(CardMedia)({
-  width: 300,
-  height: 450,
-  transition: "all 0.3s ease",
-});
-
-const Overlay = styled(Box)({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  right: 0,
-  bottom: 0,
-  backgroundColor: "rgba(0, 0, 0, 0.7)",
-  color: "white",
-  opacity: 0,
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  padding: "16px",
-  textAlign: "center",
-});
+import { Media, Overlay, StyledCard } from "../../../util/styles";
 
 function FilmCard({ apiResponse }: { apiResponse: Movie }) {
   const displayTitle = apiResponse.title || apiResponse.name || "Untitled";
