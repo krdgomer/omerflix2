@@ -1,9 +1,9 @@
-.topratedimage {
+.joinimage {
   width: 100%;
   height: auto;
   mask-image: linear-gradient(to left, transparent, black);
   -webkit-mask-image: linear-gradient(
-    to left,
+    to right,
     transparent,
     black
   ); /* For WebKit browsers */

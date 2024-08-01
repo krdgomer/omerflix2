@@ -1,14 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
-import "./topratedhomepage.css";
+import "./join.css";
 import { ColorButton } from "../../../util/styles";
 
-function TopRatedHomepage() {
+function Join() {
   return (
     <Box>
       <Grid container>
-        <Grid item xs={6}>
-          <img src="src/assets/shawsank.jpg" className="topratedimage" />
-        </Grid>
         <Grid
           item
           xs={6}
@@ -21,18 +18,26 @@ function TopRatedHomepage() {
         >
           <Grid item>
             <Typography variant="h3" sx={{ fontWeight: "medium" }}>
-              En beğenilen filmler
+              Binlerce film ayağının altında
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h6">
+              Aylık 9.99 TL'ye üye olarak sınırsız sinema keyfine eriş
             </Typography>
           </Grid>
           <Grid item>
             <ColorButton variant="contained" size="large">
-              KEŞFET
+              ARAMIZA KATIL
             </ColorButton>
           </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <img src="src/assets/filmsbg.png" className="joinimage" />
         </Grid>
       </Grid>
     </Box>
   );
 }
 
-export default TopRatedHomepage;
+export default Join;

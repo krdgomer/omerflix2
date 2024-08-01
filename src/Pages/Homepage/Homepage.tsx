@@ -7,6 +7,8 @@ import SliderMovies from "../../Components/Homepage/SliderMovies/SliderMovies";
 import Logo from "../../Components/Homepage/Logo/Logo";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TopRatedHomepage from "../../Components/Homepage/TopRatedHomepage/TopRatedHomepage";
+import Join from "../../Components/Homepage/Join/Join";
+import Footer from "../../Components/Shared/Footer/Footer";
 
 function Homepage() {
   const [weeklyTrendingMovieData, setWeeklyTrendingMovieData] = useState<
@@ -58,6 +60,8 @@ function Homepage() {
         )}
       </Box>
       <TopRatedHomepage />
+      <Join />
+      <Footer />
     </>
   );
 }
