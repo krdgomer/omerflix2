@@ -25,7 +25,7 @@ function TopRatedHomepage() {
             </Typography>
           </Grid>
           <Grid item>
-            <ColorButton variant="contained" size="large">
+            <ColorButton variant="contained" size="large" href="/testmovie">
               KEŞFET
             </ColorButton>
           </Grid>

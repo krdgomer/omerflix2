@@ -5,6 +5,7 @@ import {
   Card,
   CardMedia,
   styled,
+  TextField,
 } from "@mui/material";
 import { purple } from "@mui/material/colors";
 
@@ -15,6 +16,49 @@ export const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
     backgroundColor: purple[700],
   },
 }));
+
+export const HeaderButton = styled(Button)({
+  color: "white",
+  marginLeft: "1vh",
+});
+
+export function SearchField() {
+  return (
+    <TextField
+      id="search"
+      variant="filled"
+      label="Arama"
+      InputProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      InputLabelProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      sx={{
+        backgroundColor: "#130c1a",
+        marginRight: "3vh",
+        "& .MuiOutlinedInput-root": {
+          "& fieldset": {
+            borderColor: "white",
+          },
+          "&:hover fieldset": {
+            borderColor: "white",
+          },
+          "&.Mui-focused fieldset": {
+            borderColor: "white",
+          },
+        },
+        "& .MuiInputLabel-root": {
+          color: "white",
+        },
+      }}
+    />
+  );
+}
 
 export const StyledCard = styled(Card)({
   position: "relative",

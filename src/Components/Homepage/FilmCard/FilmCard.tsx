@@ -1,14 +1,25 @@
 import { Typography, Rating } from "@mui/material";
 import { Movie } from "../../../util/interface";
 import { Media, Overlay, StyledCard } from "../../../util/styles";
+import { useNavigate } from "react-router-dom";
 
 function FilmCard({ apiResponse }: { apiResponse: Movie }) {
   const displayTitle = apiResponse.title || apiResponse.name || "Untitled";
 
+  const navigate = useNavigate();
+
+  const handleMovieClick = (id: number) => {
+    navigate(`/movies/${id}`);
+  };
+
   return (
     <>
       <div style={{ display: "inline-block", margin: "4px" }}>
-        <a href="" style={{ textDecoration: "none" }}>
+        <a
+          href=""
+          onClick={() => handleMovieClick(apiResponse.id)}
+          style={{ textDecoration: "none" }}
+        >
           <StyledCard>
             <Media
               className="media"

@@ -3,11 +3,16 @@ import ReactDOM from "react-dom/client";
 import Homepage from "./Pages/Homepage/Homepage";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
+import MoviePage from "./Pages/MoviePage/MoviePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage />,
+  },
+  {
+    path: "/movies/:movieId",
+    element: <MoviePage />,
   },
 ]);
 

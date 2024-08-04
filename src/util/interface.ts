@@ -6,5 +6,6 @@ export interface Movie {
   poster_path: string;
   id: number;
   backdrop_path: string;
+  genres: Array<Object>;
   // Add other properties if needed
 }
