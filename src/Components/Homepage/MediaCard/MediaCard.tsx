@@ -1,15 +1,34 @@
 import { Typography, Rating } from "@mui/material";
-import { Movie } from "../../../util/interface";
+import { isMovie, isTv, Movie, Tv } from "../../../util/interface";
 import { Media, Overlay, StyledCard } from "../../../util/styles";
 import { useNavigate } from "react-router-dom";
 
-function FilmCard({ apiResponse }: { apiResponse: Movie }) {
-  const displayTitle = apiResponse.title || apiResponse.name || "Untitled";
+function MediaCard({
+  apiResponse,
+  type,
+}: {
+  apiResponse: Movie | Tv;
+  type: string;
+}) {
+  let displayTitle: string;
+
+  if (isMovie(apiResponse)) {
+    displayTitle = apiResponse.title || "Untitled";
+  } else if (isTv(apiResponse)) {
+    displayTitle = apiResponse.name || "Untitled";
+  } else {
+    displayTitle = "Unknown";
+  }
 
   const navigate = useNavigate();
 
   const handleMovieClick = (id: number) => {
-    navigate(`/movies/${id}`);
+    if (type == "movie") {
+      navigate(`/movie/${id}`);
+    }
+    if (type == "tv") {
+      navigate(`/tv/${id}`);
+    }
   };
 
   return (
@@ -41,4 +60,4 @@ function FilmCard({ apiResponse }: { apiResponse: Movie }) {
   );
 }
 
-export default FilmCard;
+export default MediaCard;

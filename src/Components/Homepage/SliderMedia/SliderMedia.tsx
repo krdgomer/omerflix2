@@ -1,20 +1,22 @@
 import { useRef } from "react";
-import { Movie } from "../../../util/interface";
-import FilmCard from "../FilmCard/FilmCard";
-import "./slidermovies.css";
+import { Movie, Tv } from "../../../util/interface";
+import MediaCard from "../MediaCard/MediaCard";
+import "./slidermedia.css";
 
-type TrendingMoviesProps = {
-  movieData: Movie[];
+type TrendingMediaProps = {
+  mediaData: Movie[] | Tv[];
   handleWheel: (
     e: React.WheelEvent<HTMLDivElement>,
     scrollTimeoutRef: React.MutableRefObject<number | null>,
     containerRef: React.RefObject<HTMLDivElement>
   ) => void;
+  type: string;
 };
 
-const SliderMovies: React.FC<TrendingMoviesProps> = ({
-  movieData,
+const SliderMedia: React.FC<TrendingMediaProps> = ({
+  mediaData,
   handleWheel,
+  type,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<any>(null);
@@ -25,11 +27,11 @@ const SliderMovies: React.FC<TrendingMoviesProps> = ({
       ref={containerRef}
       onWheel={(e) => handleWheel(e, scrollTimeoutRef, containerRef)}
     >
-      {movieData.map((movie, index) => (
-        <FilmCard key={index} apiResponse={movie} />
+      {mediaData.map((media, index) => (
+        <MediaCard key={index} apiResponse={media} type={type} />
       ))}
     </div>
   );
 };
 
-export default SliderMovies;
+export default SliderMedia;

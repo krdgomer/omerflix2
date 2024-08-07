@@ -1,25 +1,26 @@
 import "./homepage.css";
 import { useEffect, useState } from "react";
-import { Movie } from "../../util/interface";
-import { getAPIData, handleWheel } from "../../util/utils";
+import { Movie, Tv } from "../../util/interface";
+import { handleWheel } from "../../util/utils";
 import { Box, Typography } from "@mui/material";
-import SliderMovies from "../../Components/Homepage/SliderMovies/SliderMovies";
+import SliderMedia from "../../Components/Homepage/SliderMedia/SliderMedia";
 import Logo from "../../Components/Homepage/Logo/Logo";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import TopRatedHomepage from "../../Components/Homepage/TopRatedHomepage/TopRatedHomepage";
 import Join from "../../Components/Homepage/Join/Join";
 import Footer from "../../Components/Shared/Footer/Footer";
+import { getTrendingMovies, getTrendingTv } from "../../util/api";
 
 function Homepage() {
   const [weeklyTrendingMovieData, setWeeklyTrendingMovieData] = useState<
     Movie[]
   >([]);
-  const [weeklyTrendingTVData, setDailyTrendingTVData] = useState<Movie[]>([]);
+  const [weeklyTrendingTVData, setDailyTrendingTVData] = useState<Tv[]>([]);
   const [loading, setLoading] = useState<boolean>(true); // Add loading state
 
   useEffect(() => {
-    getAPIData("movie", "week", setWeeklyTrendingMovieData, setLoading);
-    getAPIData("tv", "week", setDailyTrendingTVData, setLoading);
+    getTrendingMovies("week", setWeeklyTrendingMovieData, setLoading);
+    getTrendingTv("week", setDailyTrendingTVData, setLoading);
   }, []); // Empty dependency array ensures this effect runs only once when the component mounts
 
   return (
@@ -39,9 +40,10 @@ function Homepage() {
                 <ArrowForwardIosIcon sx={{ color: "white" }} />
               </a>
             </Typography>
-            <SliderMovies
-              movieData={weeklyTrendingMovieData}
+            <SliderMedia
+              mediaData={weeklyTrendingMovieData}
               handleWheel={handleWheel}
+              type="movie"
             />
             <Typography
               variant="h4"
@@ -52,9 +54,10 @@ function Homepage() {
                 <ArrowForwardIosIcon sx={{ color: "white" }} />
               </a>
             </Typography>
-            <SliderMovies
-              movieData={weeklyTrendingTVData}
+            <SliderMedia
+              mediaData={weeklyTrendingTVData}
               handleWheel={handleWheel}
+              type="tv"
             />
           </>
         )}

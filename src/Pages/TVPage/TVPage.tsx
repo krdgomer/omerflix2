@@ -1,28 +1,28 @@
 import Header from "../../Components/Shared/Header/Header";
-import "./moviepage.css";
-import { getMovieByID } from "../../util/api";
+import "./tvpage.css";
+import { getTvByID } from "../../util/api";
 import { useEffect, useState } from "react";
-import { Movie } from "../../util/interface";
+import { Tv } from "../../util/interface";
 import { Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-function MoviePage() {
-  const [movie, setMovie] = useState<Movie | null>(null);
+function TVPage() {
+  const [tv, setTv] = useState<Tv | null>(null);
 
-  const { movieId } = useParams();
+  const { tvId } = useParams();
 
-  console.log(movieId);
+  console.log(tvId);
 
   useEffect(() => {
-    async function fetchMovie() {
-      const movieData = await getMovieByID(movieId);
-      console.log(movieData);
-      setMovie(movieData);
+    async function fetchTv() {
+      const tvData = await getTvByID(tvId);
+      console.log(tvData);
+      setTv(tvData);
     }
-    fetchMovie();
+    fetchTv();
   }, []);
 
-  if (!movie) {
+  if (!tv) {
     return (
       <div>
         <Header />
@@ -36,12 +36,12 @@ function MoviePage() {
       <div className="containerdiv">
         <div style={{ display: "flex" }}>
           <img
-            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+            src={`https://image.tmdb.org/t/p/w300/${tv.poster_path}`}
             alt="poster"
             className="posterImage"
           />
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <Typography variant="h2">{movie.title}</Typography>
+            <Typography variant="h2">{tv.name}</Typography>
           </div>
         </div>
       </div>
@@ -49,4 +49,4 @@ function MoviePage() {
   );
 }
 
-export default MoviePage;
+export default TVPage;

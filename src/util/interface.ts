@@ -1,11 +1,38 @@
-export interface Movie {
-  name: string | undefined;
-  vote_average: number | null | undefined;
-  overview: string;
-  title: string | undefined;
-  poster_path: string;
-  id: number;
+interface Media {
   backdrop_path: string;
-  genres: Array<Object>;
-  // Add other properties if needed
+  id: number;
+  overview: string;
+  poster_path: string;
+  media_type: string;
+  adult: boolean;
+  original_language: string;
+  genre_ids: Array<number>;
+  popularity: number;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface Movie extends Media {
+  title: string | undefined;
+  original_title: string;
+  genre_ids: Array<number>;
+  release_date: string;
+  video: boolean;
+}
+
+export interface Tv extends Media {
+  name: string;
+  original_name: string;
+  first_air_date: string;
+  origin_country: Array<string>;
+}
+
+// Type guard to check if apiResponse is of type Movie
+export function isMovie(apiResponse: Movie | Tv): apiResponse is Movie {
+  return (apiResponse as Movie).title !== undefined;
+}
+
+// Type guard to check if apiResponse is of type Tv
+export function isTv(apiResponse: Movie | Tv): apiResponse is Tv {
+  return (apiResponse as Tv).name !== undefined;
 }
