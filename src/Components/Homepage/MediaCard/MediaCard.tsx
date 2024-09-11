@@ -48,7 +48,13 @@ function MediaCard({
               <Typography variant="h6" sx={{ textWrap: "wrap" }}>
                 {displayTitle}
               </Typography>
-              <Rating name="read-only" value={3} readOnly />
+              <Rating
+                name="read-only"
+                value={apiResponse.vote_average / 2}
+                precision={0.1}
+                readOnly
+              />
+
               <Typography variant="body2" sx={{ textWrap: "wrap" }}>
                 {apiResponse.overview}
               </Typography>

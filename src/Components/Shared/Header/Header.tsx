@@ -16,7 +16,7 @@ function Header() {
       }}
     >
       <Box sx={{ margin: "2vh", display: "flex" }}>
-        <img src="src/assets/logo.png" alt="logo" className="headerLogo" />
+        <img src="/logo.png" alt="logo" className="headerLogo" />
         <div style={{ display: "flex" }}>
           <HeaderButton variant="text">Filmler</HeaderButton>
 

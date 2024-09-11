@@ -12,12 +12,18 @@ interface Media {
   vote_count: number;
 }
 
+type Genre = {
+  id: number;
+  name: string;
+};
+
 export interface Movie extends Media {
   title: string | undefined;
   original_title: string;
   genre_ids: Array<number>;
   release_date: string;
   video: boolean;
+  genres: Array<Genre>;
 }
 
 export interface Tv extends Media {

@@ -17,3 +17,8 @@ export const handleWheel = (
     }, 10); // Adjust debounce delay as needed
   }
 };
+
+export const formatDate = (dateString: string): string => {
+  const [year, month, day] = dateString.split("-");
+  return `${day}/${month}/${year}`;
+};
