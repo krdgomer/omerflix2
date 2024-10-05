@@ -23,7 +23,8 @@ export const handleWheel = (
 };
 
 export const getYear = (dateString: string): string => {
-  const [year, month, day] = dateString.split("-");
+  const [year] = dateString.split("-"); // Only get the year
+
   return ` (${year})`;
 };
 
