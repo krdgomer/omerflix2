@@ -1,5 +1,4 @@
-import "./homepage.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Movie, Tv } from "../../util/interface";
 import { handleWheel } from "../../util/utils";
 import { Box, Typography } from "@mui/material";
@@ -16,12 +15,15 @@ function Homepage() {
     Movie[]
   >([]);
   const [weeklyTrendingTVData, setDailyTrendingTVData] = useState<Tv[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Add loading state
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null); // Define containerRef properly
 
   useEffect(() => {
     getTrendingMovies("week", setWeeklyTrendingMovieData, setLoading);
     getTrendingTv("week", setDailyTrendingTVData, setLoading);
-  }, []); // Empty dependency array ensures this effect runs only once when the component mounts
+  }, []);
 
   return (
     <>
@@ -42,8 +44,11 @@ function Homepage() {
             </Typography>
             <SliderMedia
               mediaData={weeklyTrendingMovieData}
-              handleWheel={handleWheel}
+              handleWheel={(event) =>
+                handleWheel(event, scrollTimeoutRef, containerRef)
+              } // Pass containerRef correctly
               type="movie"
+              containerRef={containerRef} // Pass the containerRef to the SliderMedia
             />
             <Typography
               variant="h4"
@@ -56,8 +61,11 @@ function Homepage() {
             </Typography>
             <SliderMedia
               mediaData={weeklyTrendingTVData}
-              handleWheel={handleWheel}
+              handleWheel={(event) =>
+                handleWheel(event, scrollTimeoutRef, containerRef)
+              } // Pass containerRef correctly
               type="tv"
+              containerRef={containerRef} // Pass the containerRef to the SliderMedia
             />
           </>
         )}

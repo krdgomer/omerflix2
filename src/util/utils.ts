@@ -4,8 +4,8 @@ export const handleWheel = (
   event: React.WheelEvent<HTMLDivElement>,
   scrollTimeoutRef: React.MutableRefObject<ReturnType<
     typeof setTimeout
-  > | null>, // Change here
-  containerRef: React.RefObject<HTMLDivElement>
+  > | null>, // Ensure this is correct
+  containerRef: React.RefObject<HTMLDivElement> // This should remain as a RefObject
 ) => {
   if (containerRef.current) {
     containerRef.current.scrollLeft += event.deltaY;

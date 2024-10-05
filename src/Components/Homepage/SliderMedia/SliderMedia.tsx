@@ -7,10 +7,13 @@ type TrendingMediaProps = {
   mediaData: Movie[] | Tv[];
   handleWheel: (
     e: React.WheelEvent<HTMLDivElement>,
-    scrollTimeoutRef: React.MutableRefObject<number | null>,
+    scrollTimeoutRef: React.MutableRefObject<ReturnType<
+      typeof setTimeout
+    > | null>,
     containerRef: React.RefObject<HTMLDivElement>
   ) => void;
   type: string;
+  containerRef: React.RefObject<HTMLDivElement>; // Add this line
 };
 
 const SliderMedia: React.FC<TrendingMediaProps> = ({
@@ -25,7 +28,7 @@ const SliderMedia: React.FC<TrendingMediaProps> = ({
     <div
       className="trending"
       ref={containerRef}
-      onWheel={(e) => handleWheel(e, scrollTimeoutRef, containerRef)}
+      onWheel={(event) => handleWheel(event, scrollTimeoutRef, containerRef)} // Use the props here
     >
       {mediaData.map((media, index) => (
         <MediaCard key={index} apiResponse={media} type={type} />
