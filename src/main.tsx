@@ -6,17 +6,19 @@ import "./index.css";
 import MoviePage from "./Pages/MoviePage/MoviePage";
 import TVPage from "./Pages/TVPage/TVPage";
 
+const basePath = import.meta.env.DEV ? "" : "/omerflix2";
+
 const router = createBrowserRouter([
   {
-    path: "/omerflix2", // Homepage at /omerflix2
+    path: `${basePath}`, // Homepage at /omerflix2
     element: <Homepage />,
   },
   {
-    path: "/omerflix2/movie/:movieId", // Movie page in /omerflix2 subdirectory
+    path: `${basePath}/movie/:movieId`, // Movie page in /omerflix2 subdirectory
     element: <MoviePage />,
   },
   {
-    path: "/omerflix2/tv/:tvId", // TV page in /omerflix2 subdirectory
+    path: `${basePath}/tv/:tvId`, // TV page in /omerflix2 subdirectory
     element: <TVPage />,
   },
 ]);

@@ -23,11 +23,11 @@ function MediaCard({
   const navigate = useNavigate();
 
   const handleMovieClick = (id: number) => {
-    if (type == "movie") {
-      navigate(`omerflix2/movie/${id}`);
+    if (type === "movie") {
+      navigate(`/movie/${id}`); // Just the relative path
     }
-    if (type == "tv") {
-      navigate(`omerflix2/tv/${id}`);
+    if (type === "tv") {
+      navigate(`/tv/${id}`); // Just the relative path
     }
   };
 

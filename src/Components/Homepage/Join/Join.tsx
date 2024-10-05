@@ -33,7 +33,10 @@ function Join() {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          <img src="/filmsbg.png" className="joinimage" />
+          <img
+            src={`${process.env.PUBLIC_URL}/filmsbg.png`}
+            className="joinimage"
+          />
         </Grid>
       </Grid>
     </Box>
