@@ -16,9 +16,9 @@ function Header() {
       }}
     >
       <Box sx={{ margin: "2vh", display: "flex" }}>
-        <img src="/logo.png" alt="logo" className="headerLogo" />
+        <img src="omerflix2/logo.png" alt="logo" className="headerLogo" />
         <div style={{ display: "flex" }}>
-          <HeaderButton href="/" variant="text">
+          <HeaderButton href="/omerflix2" variant="text">
             Ana Sayfa
           </HeaderButton>
 

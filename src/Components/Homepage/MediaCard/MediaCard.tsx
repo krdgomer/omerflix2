@@ -24,10 +24,10 @@ function MediaCard({
 
   const handleMovieClick = (id: number) => {
     if (type == "movie") {
-      navigate(`/movie/${id}`);
+      navigate(`omerflix2/movie/${id}`);
     }
     if (type == "tv") {
-      navigate(`/tv/${id}`);
+      navigate(`omerflix2/tv/${id}`);
     }
   };
 
