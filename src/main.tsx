@@ -8,7 +8,7 @@ import TVPage from "./Pages/TVPage/TVPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/omerflix2",
     element: <Homepage />,
   },
   {
