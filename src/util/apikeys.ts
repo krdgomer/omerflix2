@@ -1,2 +1,2 @@
-export var key1 = process.env.APIKEY1;
-export var key2 = process.env.APIKEY2;
+export var key1 = import.meta.env.VITE_APIKEY1;
+export var key2 = import.meta.env.VITE_APIKEY2;
