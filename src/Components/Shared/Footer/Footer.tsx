@@ -26,7 +26,7 @@ function Footer() {
           sx={{ pb: 2 }}
         >
           <Grid item>
-            <img src="public/logo.png" alt="logo" className="footerimage" />
+            <img src="/images/logo.png" alt="logo" className="footerimage" />
           </Grid>
           <Grid item>
             <Button>

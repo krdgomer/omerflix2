@@ -16,11 +16,7 @@ function Header() {
       }}
     >
       <Box sx={{ margin: "2vh", display: "flex" }}>
-        <img
-          src={`${process.env.PUBLIC_URL}/logo.png`}
-          alt="logo"
-          className="headerLogo"
-        />
+        <img src="/images/logosd.png" alt="logo" className="headerLogo" />
         <div style={{ display: "flex" }}>
           <HeaderButton href="/omerflix2" variant="text">
             Ana Sayfa

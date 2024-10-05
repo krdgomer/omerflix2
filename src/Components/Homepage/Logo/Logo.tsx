@@ -3,7 +3,7 @@ import "./logo.css";
 function Logo() {
   return (
     <div className="logo">
-      <img src="/logo.png"></img>
+      <img src="/images/logo.png"></img>
     </div>
   );
 }

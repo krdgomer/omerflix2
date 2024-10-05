@@ -7,10 +7,7 @@ function TopRatedHomepage() {
     <Box>
       <Grid container>
         <Grid item xs={6}>
-          <img
-            src={`${process.env.PUBLIC_URL}/shawsank.png`}
-            className="topratedimage"
-          />
+          <img src="/images/shawsank.jpg" className="topratedimage" />
         </Grid>
         <Grid
           item
