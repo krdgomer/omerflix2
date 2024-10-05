@@ -18,13 +18,15 @@ function Header() {
       <Box sx={{ margin: "2vh", display: "flex" }}>
         <img src="/logo.png" alt="logo" className="headerLogo" />
         <div style={{ display: "flex" }}>
+          <HeaderButton href="/" variant="text">
+            Ana Sayfa
+          </HeaderButton>
+
           <HeaderButton variant="text">Filmler</HeaderButton>
 
           <HeaderButton variant="text">Diziler</HeaderButton>
 
           <HeaderButton variant="text">Top Rated</HeaderButton>
-
-          <HeaderButton variant="text">Diziler</HeaderButton>
         </div>
       </Box>
 

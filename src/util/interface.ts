@@ -12,7 +12,7 @@ interface Media {
   vote_count: number;
 }
 
-type Genre = {
+export type Genre = {
   id: number;
   name: string;
 };
@@ -24,6 +24,7 @@ export interface Movie extends Media {
   release_date: string;
   video: boolean;
   genres: Array<Genre>;
+  runtime: number;
 }
 
 export interface Tv extends Media {
@@ -31,6 +32,23 @@ export interface Tv extends Media {
   original_name: string;
   first_air_date: string;
   origin_country: Array<string>;
+}
+
+type AuthorDetails = {
+  name: string;
+  username: string;
+  avatar_path: string;
+  rating: number;
+};
+
+export interface Review {
+  author: string;
+  author_details: AuthorDetails;
+  content: string;
+  created_at: string;
+  id: string;
+  updated_at: string;
+  url: string;
 }
 
 // Type guard to check if apiResponse is of type Movie
