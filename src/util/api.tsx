@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Movie, Tv } from "./interface";
+import { key1, key2 } from "./apikeys";
 
 export async function getTrendingMovies(
   time_window: string,
@@ -7,7 +8,7 @@ export async function getTrendingMovies(
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   try {
-    const apiKey = "892605bbbb13e13ee0aec2421e215075";
+    const apiKey = key1;
     let resp = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/${time_window}?api_key=${apiKey}&media_type=/movie`
     );
@@ -26,7 +27,7 @@ export async function getTrendingTv(
   setLoading: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   try {
-    const apiKey = "892605bbbb13e13ee0aec2421e215075";
+    const apiKey = key1;
     let resp = await axios.get(
       `https://api.themoviedb.org/3/trending/tv/${time_window}?api_key=${apiKey}&media_type=/movie`
     );
@@ -40,8 +41,7 @@ export async function getTrendingTv(
 }
 
 export async function getMovieByID(id: string | undefined) {
-  const apiKey =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTI2MDViYmJiMTNlMTNlZTBhZWMyNDIxZTIxNTA3NSIsIm5iZiI6MTcyMjc5Njc0Ni4xNjI5NDcsInN1YiI6IjY2MDMwMjZmMGMxMjU1MDE3ZTEyM2I4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fFQmabjmmNexIdpbJErkukFcNG8ktzKALw2QiSYcmdE";
+  const apiKey = key2;
   const url = `https://api.themoviedb.org/3/movie/${id}`;
   const options = {
     method: "GET",
@@ -63,8 +63,7 @@ export async function getMovieByID(id: string | undefined) {
 }
 
 export async function getTvByID(id: string | undefined) {
-  const apiKey =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTI2MDViYmJiMTNlMTNlZTBhZWMyNDIxZTIxNTA3NSIsIm5iZiI6MTcyMjc5Njc0Ni4xNjI5NDcsInN1YiI6IjY2MDMwMjZmMGMxMjU1MDE3ZTEyM2I4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fFQmabjmmNexIdpbJErkukFcNG8ktzKALw2QiSYcmdE";
+  const apiKey = key2;
   const url = `https://api.themoviedb.org/3/tv/${id}`;
   const options = {
     method: "GET",
@@ -86,9 +85,30 @@ export async function getTvByID(id: string | undefined) {
 }
 
 export async function getReviewsByID(id: string | undefined) {
-  const apiKey =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTI2MDViYmJiMTNlMTNlZTBhZWMyNDIxZTIxNTA3NSIsIm5iZiI6MTcyMjc5Njc0Ni4xNjI5NDcsInN1YiI6IjY2MDMwMjZmMGMxMjU1MDE3ZTEyM2I4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fFQmabjmmNexIdpbJErkukFcNG8ktzKALw2QiSYcmdE";
+  const apiKey = key2;
   const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
+  const options = {
+    method: "GET",
+    url: url,
+    params: { language: "en-US", page: "1" },
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+  };
+
+  try {
+    const response = await axios.request(options);
+    return response.data; // Return the movie data
+  } catch (error) {
+    console.error("Error fetching tv data:", error);
+    throw error; // Rethrow the error so it can be handled by the calling function
+  }
+}
+
+export async function getReviewsByIDTV(id: string | undefined) {
+  const apiKey = key2;
+  const url = `https://api.themoviedb.org/3/tv/${id}/reviews`;
   const options = {
     method: "GET",
     url: url,

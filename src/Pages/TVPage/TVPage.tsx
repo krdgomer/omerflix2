@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { Tv } from "../../util/interface";
 import { Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
+import TVSummary from "../../Components/TVPage/TVSummary";
+import ReviewsTV from "../../Components/TVPage/RewievsTV/RewievsTV";
 
 function TVPage() {
   const [tv, setTv] = useState<Tv | null>(null);
@@ -34,17 +36,9 @@ function TVPage() {
     <div>
       <Header />
       <div className="containerdiv">
-        <div style={{ display: "flex" }}>
-          <img
-            src={`https://image.tmdb.org/t/p/w300/${tv.poster_path}`}
-            alt="poster"
-            className="posterImage"
-          />
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <Typography variant="h2">{tv.name}</Typography>
-          </div>
-        </div>
+        <TVSummary tv={tv} />
       </div>
+      <ReviewsTV series_id={tv.id.toString()} />
     </div>
   );
 }

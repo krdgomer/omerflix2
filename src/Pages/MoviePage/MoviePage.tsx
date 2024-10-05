@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Movie } from "../../util/interface";
 import { useParams } from "react-router-dom";
 import MovieSummary from "../../Components/MoviePage/MovieSummary";
-import Reviews from "../../Components/MoviePage/Reviews/Reviews";
+import ReviewsMovie from "../../Components/MoviePage/ReviewsMovie/ReviewsMovie";
 
 function MoviePage() {
   const [movie, setMovie] = useState<Movie | null>(null);
@@ -35,7 +35,7 @@ function MoviePage() {
       <div className="containerdiv">
         <MovieSummary movie={movie} />
       </div>
-      <Reviews movieId={movie.id.toString()} />
+      <ReviewsMovie movieId={movie.id.toString()} />
     </div>
   );
 }

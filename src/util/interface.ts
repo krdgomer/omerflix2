@@ -10,6 +10,7 @@ interface Media {
   popularity: number;
   vote_average: number;
   vote_count: number;
+  genres: Array<Genre>;
 }
 
 export type Genre = {
@@ -23,7 +24,7 @@ export interface Movie extends Media {
   genre_ids: Array<number>;
   release_date: string;
   video: boolean;
-  genres: Array<Genre>;
+
   runtime: number;
 }
 
@@ -32,6 +33,8 @@ export interface Tv extends Media {
   original_name: string;
   first_air_date: string;
   origin_country: Array<string>;
+  number_of_episodes: number;
+  number_of_seasons: number;
 }
 
 type AuthorDetails = {

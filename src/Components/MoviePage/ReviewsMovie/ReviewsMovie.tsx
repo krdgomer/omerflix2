@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import {
   Avatar,
   createTheme,
-  Divider,
   Paper,
   ThemeProvider,
   Typography,
@@ -11,7 +10,7 @@ import { Review } from "../../../util/interface";
 import { getReviewsByID } from "../../../util/api";
 import "./reviews.css";
 
-function Reviews({ movieId }: { movieId: string }) {
+function ReviewsMovie({ movieId }: { movieId: string }) {
   const [reviews, setReviews] = useState<Array<Review> | null>(null);
 
   useEffect(() => {
@@ -57,4 +56,4 @@ function Reviews({ movieId }: { movieId: string }) {
   );
 }
 
-export default Reviews;
+export default ReviewsMovie;
