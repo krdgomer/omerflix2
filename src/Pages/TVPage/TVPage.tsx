@@ -3,7 +3,6 @@ import "./tvpage.css";
 import { getTvByID } from "../../util/api";
 import { useEffect, useState } from "react";
 import { Tv } from "../../util/interface";
-import { Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import TVSummary from "../../Components/TVPage/TVSummary";
 import ReviewsTV from "../../Components/TVPage/RewievsTV/RewievsTV";

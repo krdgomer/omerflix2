@@ -2,7 +2,9 @@ import { Genre } from "./interface";
 
 export const handleWheel = (
   event: React.WheelEvent<HTMLDivElement>,
-  scrollTimeoutRef: React.MutableRefObject<number | null>,
+  scrollTimeoutRef: React.MutableRefObject<ReturnType<
+    typeof setTimeout
+  > | null>, // Change here
   containerRef: React.RefObject<HTMLDivElement>
 ) => {
   if (containerRef.current) {
@@ -24,6 +26,7 @@ export const getYear = (dateString: string): string => {
   const [year, month, day] = dateString.split("-");
   return ` (${year})`;
 };
+
 export const formatDate = (dateString: string): string => {
   const [year, month, day] = dateString.split("-");
   return ` (${day}/${month}/${year})`;
@@ -35,8 +38,7 @@ export const formatGenres = (genres: Array<Genre>): string => {
 };
 
 export const formatRuntime = (runtime: number): string => {
-  var runtimeHour = runtime / 60;
-  runtimeHour = ~~runtimeHour;
-  var runtimeMinute = runtime % 60;
-  return `${runtimeHour}h ${runtimeMinute}m `;
+  const runtimeHour = Math.floor(runtime / 60); // Use Math.floor for clarity
+  const runtimeMinute = runtime % 60;
+  return `${runtimeHour}h ${runtimeMinute}m`;
 };
