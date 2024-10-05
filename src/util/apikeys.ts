@@ -1,3 +1,2 @@
-export var key1 = "892605bbbb13e13ee0aec2421e215075";
-export var key2 =
-  "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTI2MDViYmJiMTNlMTNlZTBhZWMyNDIxZTIxNTA3NSIsIm5iZiI6MTcyMjc5Njc0Ni4xNjI5NDcsInN1YiI6IjY2MDMwMjZmMGMxMjU1MDE3ZTEyM2I4YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fFQmabjmmNexIdpbJErkukFcNG8ktzKALw2QiSYcmdE";
+export var key1 = process.env.APIKEY1;
+export var key2 = process.env.APIKEY2;
