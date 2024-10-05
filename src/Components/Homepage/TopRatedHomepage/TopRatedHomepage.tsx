@@ -7,7 +7,10 @@ function TopRatedHomepage() {
     <Box>
       <Grid container>
         <Grid item xs={6}>
-          <img src="src/assets/shawsank.jpg" className="topratedimage" />
+          <img
+            src="omerflix2/src/assets/shawsank.jpg"
+            className="topratedimage"
+          />
         </Grid>
         <Grid
           item

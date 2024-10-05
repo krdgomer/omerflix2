@@ -33,7 +33,7 @@ function Join() {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          <img src="src/assets/filmsbg.png" className="joinimage" />
+          <img src="omerflix2/src/assets/filmsbg.png" className="joinimage" />
         </Grid>
       </Grid>
     </Box>
